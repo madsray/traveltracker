@@ -32,10 +32,21 @@
       <table>
         <tr ng-repeat="travel in ctrl.travel"
         ng-class="(travel.travelAgain ? 'travelAgain' : '')">
-          <td ng-dblclick='ctrl.updateDestination(travel)'> {{ travel.city}}</td>
+          <td ng-dblclick='ctrl.updateDestination(travel)'
+          ng-mouseover="ctrl.chooseOneDestination(travel)"
+          > {{ travel.city}}</td>
           <td ng-click='ctrl.deleteDestination(travel._id)'>x</td>
         </tr>
       </table>
+      <div class="details">
+<h3>Travel Log Info:</h3>
+<hr>
+<h4> {{ ctrl.travels.city }} </h4>
+<h4> {{ ctrl.travels.country }}</h4>
+<h5> {{ ctrl.travels.date}}</h5>
+<h6><span> Travel Again? </span>  {{ ctrl.travels.travelAgain }} </h3>
+<p><span> Description: </span> {{ ctrl.travels.description }} </p>
+</div>
     </div>
 
   </body>

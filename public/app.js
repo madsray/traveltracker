@@ -29,6 +29,7 @@ this.getDestination = () => {
    url: '/travel'
  }).then(response=>{
    this.travel=response.data
+   this.travels = this.travel[0];
  }).catch(err=> console.log(err));
 }
 this.getDestination();
@@ -62,7 +63,7 @@ console.log('I am going to delete you');
       }).catch (err => console.error('Catch: ', err))
   }
   this.chooseOneDestination = ( travel ) => {
-  this.travel = travel;
-  console.log( this.travel.city );
+  this.travels = travel;
+  console.log( this.travels.city );
 }
 }])
