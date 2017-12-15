@@ -3,7 +3,7 @@ const travelSchema = mongoose.Schema({
   city: {type: String, required: true},
   state: String,
   country: {type: String, required: true},
-  duration: String,
+  date: String,
   description: String
 });
 

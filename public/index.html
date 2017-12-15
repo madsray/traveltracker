@@ -7,6 +7,17 @@
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body ng-controller='MainController as ctrl'>
-    {{ctrl.test}}
+    <!-- {{ctrl.test}} -->
+    <h1>Travel Tracker</h1>
+    <h2>A great way to log where you've been!</h2>
+    <div>
+      <table>
+        <tr ng-repeat="travel in ctrl.travel">
+          <td> {{ travel.city}}</td>
+
+        </tr>
+      </table>
+    </div>
+
   </body>
 </html>
