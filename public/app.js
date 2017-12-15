@@ -48,5 +48,21 @@ console.log('I am going to delete you');
   }, error => { console.error(err.message)
   }).catch( err => console.error('Catch', err));
   }
-
+  this.formdataUpdated={};
+  this.updateDestination = (travel) => {
+      travel.travelAgain=!travel.travelAgain;
+      $http({
+        method: 'PUT',
+        url: '/travel/' + travel._id,
+        data: {travelAgain: travel.travelAgain}
+      }).then (response => {
+        console.log(response.data.travelAgain);
+      }, error =>{
+        console.log(err.message);
+      }).catch (err => console.error('Catch: ', err))
+  }
+  this.chooseOneDestination = ( travel ) => {
+  this.travel = travel;
+  console.log( this.travel.city );
+}
 }])

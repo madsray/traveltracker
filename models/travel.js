@@ -4,7 +4,8 @@ const travelSchema = mongoose.Schema({
   state: String,
   country: String,
   date: String,
-  description: String
+  description: String,
+  travelAgain: {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('travelTracker', travelSchema);
