@@ -10,11 +10,21 @@
     <!-- {{ctrl.test}} -->
     <h1>Travel Tracker</h1>
     <h2>A great way to log where you've been!</h2>
+    <h3>Log a New Travel Spot</h3>
+    <form ng-submit="ctrl.createDestination()">
+      <input type="text" placeholder="city" name="city" ng-model="ctrl.createForm.city" />
+      <input type="text" placeholder="state" name="state" ng-model="ctrl.createForm.state" />
+      <input type="text" placeholder="country" name="country" ng-model="ctrl.createForm.country" />
+      <input type="text" placeholder="date" name="date" ng-model="ctrl.createForm.date" />
+      <input type="text" placeholder="description" name="description" ng-model="ctrl.createForm.description" />
+      <input type="submit" value="Create New Entry" />
+    </form>
+
     <div>
       <table>
         <tr ng-repeat="travel in ctrl.travel">
           <td> {{ travel.city}}</td>
-
+          <td ng-click='ctrl.deleteDestination(travel._id)'>x</td>
         </tr>
       </table>
     </div>

@@ -3,14 +3,20 @@ const app = angular.module('travelTracker',[]);
 app.controller('MainController',['$http', function($http){
   // this.test="HELLOOOOOOO";
   this.travel=[];
+  this.createForm={};
+
 this.createDestination= ()=> {
-  console.log('Form data is: ', this.formData);
+  console.log('This button calls the create function', this.createForm);
   $http({
-    url: '/travel',
     method:'POST',
-    data: this.formData
-  }).then(response=>{ this.travel.push(response.data)
-    this.createForm={};
+    url: '/travel',
+    data: this.createForm
+  }).then(response=>{
+
+    this.travel.push(response.data)
+    console.log(response.data)
+    this.createForm= {};
+    console.log(response.data)
   }, error => {
     console.error(error)
 }).catch( err=>  console.log( error))
@@ -26,6 +32,21 @@ this.getDestination = () => {
  }).catch(err=> console.log(err));
 }
 this.getDestination();
+this.deleteDestination= (id) => {
+console.log('I am going to delete you');
+  $http({
+    method: 'DELETE',
+    url: '/travel/' + id
+  }).then(response => {
+    // console.table(response.data);
+    const removeByIndex = this.travel.findIndex(travel => travel._id === id)
 
+    this.travel.splice(removeByIndex, 1);
+
+
+    console.log('this is the array index number of the destination i want to delete: ', removeByIndex);
+  }, error => { console.error(err.message)
+  }).catch( err => console.error('Catch', err));
+  }
 
 }])

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const travelSchema = mongoose.Schema({
-  city: {type: String, required: true},
+  city: String,
   state: String,
-  country: {type: String, required: true},
+  country: String,
   date: String,
   description: String
 });
